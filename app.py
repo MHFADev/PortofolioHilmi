@@ -68,35 +68,5 @@ def gallery(gallery_type):
                          gallery_type=gallery_type, 
                          data=gallery_data[gallery_type])
 
-@app.route('/contact', methods=['POST'])
-def contact():
-    """Handle contact form submission - now handled by EmailJS on frontend"""
-    try:
-        name = request.form.get('name') or request.json.get('name')
-        email = request.form.get('email') or request.json.get('email')
-        message = request.form.get('message') or request.json.get('message')
-        
-        if not all([name, email, message]):
-            return jsonify({
-                'status': 'error',
-                'message': 'Semua field harus diisi!'
-            }), 400
-        
-        # Log the submission for tracking
-        app.logger.info(f"Contact form submission received: {name} ({email})")
-        
-        # EmailJS handles the actual email sending on frontend
-        return jsonify({
-            'status': 'success',
-            'message': '🎉 Pesan berhasil dikirim ke hilmimax109@gmail.com! Terima kasih atas feedback Anda.'
-        })
-            
-    except Exception as e:
-        app.logger.error(f"Contact form error: {str(e)}")
-        return jsonify({
-            'status': 'error',
-            'message': 'Terjadi kesalahan sistem. Silakan coba lagi.'
-        }), 500
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

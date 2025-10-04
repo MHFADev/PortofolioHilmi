@@ -10,7 +10,6 @@ class AnimationController {
         this.setupMobileMenu();
         this.setupScrollAnimations();
         this.setupSkillBars();
-        this.setupContactForm();
         this.setupSmoothScrolling();
         this.setupParallaxEffects();
         this.setupInteractiveElements();
@@ -129,66 +128,7 @@ class AnimationController {
         skillBars.forEach(bar => skillObserver.observe(bar));
     }
 
-    // 6. Contact Form Animation
-    setupContactForm() {
-        const contactForm = document.getElementById('contact-form');
-        
-        contactForm?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitBtn = contactForm.querySelector('.form-submit');
-            const submitText = submitBtn.querySelector('.submit-text');
-            const submitLoader = submitBtn.querySelector('.submit-loader');
-            
-            // Animation for form submission
-            submitText.style.opacity = '0';
-            submitLoader.classList.remove('hidden');
-            submitBtn.style.transform = 'scale(0.95)';
-            
-            const formData = new FormData(contactForm);
-            
-            try {
-                const response = await fetch('/contact', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                // Success animation
-                if (result.status === 'success') {
-                    submitBtn.style.background = 'linear-gradient(45deg, #10b981, #059669)';
-                    submitText.textContent = 'Terkirim!';
-                    
-                    // Reset form after delay
-                    setTimeout(() => {
-                        contactForm.reset();
-                        this.resetSubmitButton(submitBtn, submitText, submitLoader);
-                    }, 2000);
-                } else {
-                    throw new Error(result.message);
-                }
-            } catch (error) {
-                // Error animation
-                submitBtn.style.background = 'linear-gradient(45deg, #ef4444, #dc2626)';
-                submitText.textContent = 'Error!';
-                
-                setTimeout(() => {
-                    this.resetSubmitButton(submitBtn, submitText, submitLoader);
-                }, 2000);
-            }
-        });
-    }
-
-    resetSubmitButton(btn, text, loader) {
-        btn.style.background = '';
-        btn.style.transform = '';
-        text.textContent = 'Kirim Pesan';
-        text.style.opacity = '1';
-        loader.classList.add('hidden');
-    }
-
-    // 7. Smooth Scrolling
+    // 6. Smooth Scrolling
     setupSmoothScrolling() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
