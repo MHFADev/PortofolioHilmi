@@ -10,13 +10,25 @@ class ThreeScene {
     }
 
     init() {
-        this.setupScene();
-        this.setupCamera();
-        this.setupRenderer();
-        this.setupLights();
-        this.createObjects();
-        this.setupEventListeners();
-        this.animate();
+        try {
+            this.setupScene();
+            this.setupCamera();
+            this.setupRenderer();
+            this.setupLights();
+            this.createObjects();
+            this.setupEventListeners();
+            this.animate();
+        } catch (error) {
+            console.warn('Three.js initialization failed, continuing without 3D elements:', error);
+            this.cleanup();
+        }
+    }
+
+    cleanup() {
+        const canvas = document.getElementById('three-canvas');
+        if (canvas) {
+            canvas.style.display = 'none';
+        }
     }
 
     setupScene() {
