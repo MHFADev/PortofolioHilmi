@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("QX2L7OagAmYEXVTdK5IUB81WEA7AYHmKMnLMQJYqoFxC4zokzRt5DvV69a3fthwOMdqwbbmMJU5/jRS7lubwqg==", "dev-secret-key-change-in-production")
+app.secret_key = os.environ.get("SESSION_SECRET")
 
 @app.route('/')
 def index():
