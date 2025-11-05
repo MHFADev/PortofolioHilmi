@@ -1,6 +1,6 @@
 # Overview
 
-This is a personal portfolio website for M Hilmi (MHFADEV), showcasing professional skills in web development and IT support. The portfolio features a modern, responsive design with dark/light theme support and includes dedicated gallery sections for coding projects and IT support activities. The application presents a comprehensive view of the developer's capabilities through interactive animations, 3D visual effects, and detailed project documentation.
+This is a personal portfolio website for M Hilmi (MHFADEV), showcasing professional skills in modern web development. The portfolio features a modern, responsive design with dark/light theme support and focuses exclusively on web development technologies including HTML, CSS, JavaScript, React, Next.js, Python, Flask, Tailwind CSS, and Git. The application presents a comprehensive view of the developer's frontend and backend capabilities through interactive animations, 3D visual effects, and detailed project documentation.
 
 # User Preferences
 
