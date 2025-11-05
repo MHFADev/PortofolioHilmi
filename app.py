@@ -16,49 +16,28 @@ def index():
 @app.route('/gallery/<gallery_type>')
 def gallery(gallery_type):
     """Gallery pages for different project types"""
-    if gallery_type not in ['ict', 'coding']:
+    if gallery_type not in ['coding']:
         return render_template('index.html')
     
     gallery_data = {
-        'ict': {
-            'title': 'Album IT Support Sekolah',
-            'description': 'Dokumentasi kegiatan saya sebagai bagian dari divisi TIK sekolah, mencakup pemeliharaan hardware, troubleshooting jaringan, dan dukungan teknis.',
-            'images': [
-                {
-                    'url': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    'title': 'Perbaikan Komputer',
-                    'description': 'Memperbaiki PC di laboratorium sekolah'
-                },
-                {
-                    'url': 'https://images.unsplash.com/photo-1621784563330-ca5d824d3ec5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    'title': 'Maintenance Jaringan',
-                    'description': 'Memeriksa koneksi jaringan sekolah'
-                },
-                {
-                    'url': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    'title': 'Instalasi Software',
-                    'description': 'Menginstal software untuk keperluan pembelajaran'
-                }
-            ]
-        },
         'coding': {
-            'title': 'Album Sesi Coding',
-            'description': 'Dokumentasi visual dari perjalanan pengembangan web saya. Setiap gambar menceritakan proses belajar dan menciptakan solusi digital.',
+            'title': 'Album Proyek Web Development',
+            'description': 'Dokumentasi visual dari perjalanan pengembangan web saya menggunakan HTML, CSS, JavaScript, React, Next.js, dan Python. Setiap gambar menceritakan proses belajar dan menciptakan solusi digital.',
             'images': [
                 {
                     'url': 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-                    'title': 'Mengembangkan Website',
-                    'description': 'Proses coding menggunakan React.js'
+                    'title': 'Mengembangkan Website dengan React',
+                    'description': 'Proses coding menggunakan React.js dan Next.js'
                 },
                 {
                     'url': 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80',
-                    'title': 'Diskusi Solusi',
-                    'description': 'Berdiskusi dengan teman tentang bug'
+                    'title': 'Kolaborasi Tim',
+                    'description': 'Berdiskusi dengan teman tentang solusi coding'
                 },
                 {
                     'url': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
                     'title': 'Debugging Session',
-                    'description': 'Menyelesaikan masalah kode kompleks'
+                    'description': 'Menyelesaikan masalah kode kompleks dengan Git'
                 }
             ]
         }
